@@ -1,0 +1,33 @@
+{
+  "name": "PipeDrive_BE",
+  "version": "1.0.0",
+  "description": "CRUD Application in Node.JS hitting the PipeDrive API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "server": "cross-env nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/natemosco/PipeDrive_BE.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/natemosco/PipeDrive_BE/issues"
+  },
+  "homepage": "https://github.com/natemosco/PipeDrive_BE#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^4.4.1",
+    "pipedrive": "^10.5.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.7"
+  }
+}
