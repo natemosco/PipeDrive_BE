@@ -21,9 +21,18 @@ router.get("/:id", async (req, res) => {
   }
 })
 
-router.post("/person", async (req, res) => {
+router.post("/", async (req, res) => {
   const { name, email, phone } = req.body
+  let personInput = []
   let errorMessage
+
+  personInput['body'] = {
+    "name": name,
+    "phone": phone,
+    "email": email
+  };
+
+  console.log(personInput, "person input \n\n")
   if (!name || !email || !phone) {
     res.status(400).json({
       "message": "requirement not met, must include valid name, email, and phone, current values posted below",
@@ -32,7 +41,7 @@ router.post("/person", async (req, res) => {
       "phone": phone,
     })
   } else {
-    const user = await Controller.addAPerson([name, email, phone]).catch(err => { errorMessage = err })
+    const user = await Controller.addAPerson(personInput).catch(err => { errorMessage = err })
     if (user && user.success) {
       res.status(201).json(user)
     } else {
@@ -40,6 +49,9 @@ router.post("/person", async (req, res) => {
     }
   }
 });
+
+
+
 router.delete("/:id", async (req, res) => {
   const id = req.params.id
   let errorMessage
